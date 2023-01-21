@@ -1,0 +1,18 @@
+
+{% extends 'portfolio/base.html' %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'portfolio/master.css' %}">
+
+<h3 class="text-center">CoFFiN has written <span class="num">{{ blogs.count }}</span> blog{{ blogs.count|pluralize }}</h3>
+
+{% for blog in blogs %}
+<div class="main-blog">
+<a href="{% url 'blog:detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
+<h3 class="date">{{ blog.date|date:'M d Y'|upper }}</h3>
+<p>{{ blog.description|striptags|truncatechars:100 }}</p>
+</div>
+
+{% endfor %}
+{% endblock %}

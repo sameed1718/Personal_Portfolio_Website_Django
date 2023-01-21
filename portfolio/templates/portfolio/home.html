@@ -1,0 +1,46 @@
+{% extends 'portfolio/base.html' %}
+  {% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'portfolio/master.css' %}">
+<div class="video">
+  <video autoplay loop muted plays-inline class="back-video">
+    <source src="{% static 'portfolio/video.mp4' %}" type="video/mp4" >
+  </video>
+  <div class="portfolio">
+    <h3>PORTFOLIO</h3>
+  </div>
+  </div>
+</div>
+
+<div id="about">
+  <div class="about-info">
+    <h2 class="top-header text-center">
+      ABOUT ME
+  </h2>
+
+<div class="about-img">
+  <img src="{% static 'portfolio/sam.jpg' %}">
+</div>
+<h3 class="text-center">Sameed Majgaonkar</h3>
+<p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam consequuntur quos nobis officiis in, quia quas possimus ab dolores ut quis facere, consectetur beatae quae doloremque provident expedita labore velit magni! Ratione ullam explicabo corrupti cum temporibus natus, vero eos ab quisquam ducimus dolor numquam, officiis repellat sint eveniet id?</p>
+</div>
+</div>
+<h3 class="top-header" id="post">POSTS</h3>
+<div class="container">
+{% for project in projects %}
+
+  <div class="image">
+   {% if project.url %}
+   <br><a href="{{ project.url }}">    {% endif %}<img src="{{ project.image.url }}"></a>
+    <div class="desc">
+<h3 class="text-center">{{ project.title }}</h3>
+<p class="text-center">{{ project.description }}</p>
+
+    </div>
+  </div>
+{% endfor %}
+</div>
+</section>
+{% endblock %}

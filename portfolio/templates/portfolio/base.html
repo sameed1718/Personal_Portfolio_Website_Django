@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Portfolio</title>
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'portfolio/master.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+<body>
+
+  <nav id="navbar">
+    <h2 id="logo"><img src="{% static 'portfolio/logo.png' %}"><span class="primary-heading">COFFIN</span></h2>
+      <ul>
+        <li><a href="{% url 'home' %}">HOME</a></li>
+        <li><a href="http://127.0.0.1:8000/#about">ABOUT</a></li>
+        <li><a href="{% static 'portfolio/Resume.pdf' %}">RESUME</a></li>
+        <li><a href="http://127.0.0.1:8000/#post">POSTS</a></li>
+        <li><a href="{% url 'blog:all_blogs'%}" class="target">BLOG</a></li>
+      </ul>
+  </nav>
+  
+  {% block content %} {% endblock %}
+  <footer id="main-footer">
+    <p>Coffin's Portfolio &copy 2022,All Rights Reserved</p>
+  </footer>
+</body>
+</html>
